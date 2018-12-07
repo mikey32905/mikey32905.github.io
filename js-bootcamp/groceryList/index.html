@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Grocery Shopping Listing</h1>
+        <h3>Keeping tabs on grocery shopping needs.</h3>
+        <h6>This application was created by Mike Williams</h6>
+        <input id="search-text" placeholder="search text">
+        <label>
+            <input id="hide-gotten" type="checkbox">Hide your gotten items
+        </label>
+        <div id="grocery">
+
+        </div>
+        <form id="grocery-form">
+            <input type="text" placeholder="add a new grocery item to your list" name="newGroceryItem">
+            X
+            <input type="text" name="numGroceryItem" size="2">
+            <button>Add</button>
+        </form>
+        <script src="http://chancejs.com/chance.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+        <script src="grocery-functions.js"></script>
+        <script src="groceryList.js"></script>
+    </body>
+</html>

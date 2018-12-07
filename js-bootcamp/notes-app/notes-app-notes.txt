@@ -1,0 +1,47 @@
+//Unix Epoch - January 1st 1970 00:00:00
+//in milliseconds
+
+const now = new Date()
+const timeStamp = now.getTime()
+
+const myDate = new Date(timeStamp)
+console.log(myDate.getFullYear())
+//console.log(now.getTime())
+/* console.log(now)
+console.log(`Year: ${now.getFullYear()}`)
+console.log(`Month: ${now.getMonth()}`)
+console.log(`Day of month: ${now.getDate()}`)
+ */
+
+ const date1 = new Date('August 3 2018 02:00:00')
+ const date2 = new Date('July 26 1988 16:30:00')
+ const timeStamp1 = date1.getTime()
+ const timeStamp2 = date2.getTime()
+
+ if (timeStamp1 < timeStamp2) {
+   console.log(date1.toString())
+ } else {
+   console.log(date2.toString())
+ }
+
+ /* /* const now = moment()
+console.log(now.toString())
+
+now.add(1, 'year').subtract(20, 'days')
+console.log(now.toString()) 
+//November 3rd, 2018
+console.log(now.format('MMMM Do, YYYY'))
+
+console.log(now.fromNow())
+const nowTimeStamp = now.valueOf()
+console.log(nowTimeStamp)
+
+console.log(moment(nowTimeStamp).toString()) 
+
+const now = moment()
+now.year(1970)
+now.month(7)
+now.date(03)
+console.log(now.toString())
+console.log(now.format('MMM Do, YYYY'))
+ */
