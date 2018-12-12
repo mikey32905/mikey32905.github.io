@@ -1,55 +1,60 @@
-
-//const words = ['chocolate', 'Merry Christmas', 'Spiderman', 'New Years Eve', 'winter', 'Titanic']
-const Hangman = function(word = [], guesses, lettersGuessed = [], status = 'playing') {
-    this.word = word
-    this.guesses = guesses
-    this.lettersGuessed = lettersGuessed
-    this.status = status
-}
-
-Hangman.prototype.setWord = function(word) {
-    let newWord = word.toLowerCase().split('')
-    this.word = newWord
-    this.guesses = 7
-}
-
-Hangman.prototype.makeGuesses = function(guess) {
-    const testGuess = guess.toLowerCase()
-    const isUnique = !this.lettersGuessed.includes(testGuess)
-    const isBadGuess = !this.word.includes(testGuess)
-
-    if (isUnique) {
-        this.lettersGuessed.push(testGuess)
+class Hangman {
+    constructor(word, guesses) {
+        this.word = word.toLowerCase().split('')
+        this.guesses = guesses
+        this.lettersGuessed = []
+        this.status = 'playing'    
     }
-
-    if (isUnique && isBadGuess) {
-        this.guesses--
+    setWord(word) {
+        let newWord = word.toLowerCase().split('')
+        this.word = newWord
+        this.guesses = 7         
     }
-
-    this.calculateStatus()
- }
-
-Hangman.prototype.getPuzzle = function() {
-    let puzzle = ''
-
-    this.word.forEach((letter) => {
-        if (this.lettersGuessed.includes(letter) || letter === ' ') {
-            puzzle += letter
-        } else {
-            puzzle += '*'
+    makeGuesses(guess) {
+        const testGuess = guess.toLowerCase()
+        const isUnique = !this.lettersGuessed.includes(testGuess)
+        const isBadGuess = !this.word.includes(testGuess)
+    
+        if (isUnique) {
+            this.lettersGuessed.push(testGuess)
         }
-    })
+    
+        if (isUnique && isBadGuess) {
+            this.guesses--
+        }
+    
+        this.calculateStatus()    
+    }
+   get puzzle() {
+        let puzzle = ''
 
-    return puzzle
-}
+        this.word.forEach((letter) => {
+            if (this.lettersGuessed.includes(letter) || letter === ' ') {
+                puzzle += letter
+            } else {
+                puzzle += '*'
+            }
+        })
+    
+        return puzzle    
+    }
+    calculateStatus() {
+        if (this.guesses === 0) {
+            this.status = 'failed'
+        } else if (!this.puzzle.includes('*')) { //
+            this.status = 'finished'
+        } else {
+            this.status = 'playing'
+        }    
 
-Hangman.prototype.calculateStatus = function() {
-    if (this.guesses === 0) {
-        this.status = 'failed'
-    } else if (!this.getPuzzle().includes('*')) {
-        this.status = 'finished'
-    } else {
-        this.status = 'playing'
+    }
+    get statusMessage() {
+        if (this.status === "failed") {
+            return `Nice try! The word was "${this.word.join('')}".`
+        } else if (this.status === "finished") {
+            return 'Great work!! You guessed the word!'
+        } else {
+            return `Guesses left: ${this.guesses}`
+        }    
     }
 }
-
