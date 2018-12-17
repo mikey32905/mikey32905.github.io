@@ -30,14 +30,15 @@ window.addEventListener('keypress', (e) => {
 //example of asychronous execution
 getPuzzle('2').then((puzzle) => {
     console.log(puzzle)
-}, (err) => {
+}).catch((err) => {
     console.log(`Error: ${err}`)
 })
 
-getCountry('MX').then((country) => {
-    console.log(`Country: ${country}`)
-}, (err) => {
+getLocation().then((location) => {
+    return getCountry(location.country)
+}).then((country) => {
+    console.log(country.name)
+}).catch((err) => {
     console.log(`Error: ${err}`)
 })
-
 
