@@ -4,17 +4,15 @@
     <body>
         <h2 id="title"></h2>
         <div id="battleship-board">
-            <div id="puzzle-display">
-            </div>
-            <br />
             <div id=guess-area>
                 <label><b>Enter Guess (Row, Column): </b></label>
                 <input type="text" placeholder='0' id='row-guess' maxlength="1" size="1" style="text-align: center"> , 
                 <input type="text" placeholder='0' id='column-guess' maxlength="1" size="1" style="text-align: center">
-                <button id='fire'>Fire!</button>
+                <button id="fire-button">Fire!</button>
             </div>
-            <span id="guessed"></span>
-            <p id="guesses-left"></p>
+            <div id="puzzle-display">
+            </div>
+            <h4 id="guesses-left"></h4>
         </div>
         <script src='battleship.js'></script>
     </body>
