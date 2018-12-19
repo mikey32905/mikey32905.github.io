@@ -1,4 +1,4 @@
-//let board = []
+//Battleship game: by Mike Williams (12-18-18) v1.0
 const battleshipBoardElement = document.querySelector('#battleship-board')
 const puzzleDisplayElement = document.querySelector('#puzzle-display')
 const titleElement = document.querySelector('#title')
@@ -6,9 +6,7 @@ const guessRowElement = document.querySelector('#row-guess')
 const guessColumnElement = document.querySelector('#column-guess')
 const fireButtonElement = document.querySelector('#fire-button')
 const gameStatusElement = document.querySelector('#guesses-left')
-//const lf = document.createElement('br')
 
-//firebutton not working
 let gameBoard = []
 //let turn = 1
 const gameStatus = {
@@ -38,12 +36,16 @@ const generateGameBoard = (board) => {
     gameBoard = board
 
      board.forEach((row) => {
-        puzzleDisplayElement.innerHTML += (row + "<br />") 
+        row.forEach((item) => {
+            const gameBoardEl = document.createElement('span')
+            gameBoardEl.textContent = item
+            puzzleDisplayElement.appendChild(gameBoardEl)
+        })
+        puzzleDisplayElement.innerHTML += ('<br />')
     }) 
 }
 
 let getGuessRow = NaN
-
 let getGuessColumn = NaN
 
 const randomRow = () => {
