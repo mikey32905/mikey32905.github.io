@@ -2,25 +2,38 @@
 
 <html>
     <head>
+        <title>To-Do App</title>
+        <link href="/styles/styles.css" rel="stylesheet">
+        <link href="/images/todo-Icon.PNG" rel="icon">    
     </head>
     <body>
-        <h1>Todo App</h1>
-        <h2>Listing todo items smartly.</h2>
-        <h5>This application was created by Mike Williams.</h5>
-        <input id="search-text" placeholder='search text'>
-        <label>
-                <input id="hide-completed" type="checkbox">Hide completed
-        </label>
-        <div id="todos-list">
-
+        <div class="header">
+            <div class="container">
+                <h1 class="header__title"> To-do App</h1>
+                <div class="header__subtitle">What do you have to do??</div>
+            </div>
         </div>
-        <form id="todo-form">
-            <input  type="text" placeholder="type a new todo" name="newTodo">
-            <button>Submit</button>
-        </form>
-        <script src="http://chancejs.com/chance.min.js"></script>
+ 
+        <div class="actions">
+            <div class="actions__container">   
+                <input id="search-text" class="input" placeholder='Filter To-dos'>
+                <label class="checkbox">
+                        <input id="hide-completed" type="checkbox">Hide completed
+                </label>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="todos-list">
+            </div>
+            <form id="todo-form">
+                <input  type="text" class="input" placeholder="type a new todo" name="newTodo">
+                <button class="button">Add Todo</button>
+            </form>            
+        </div>
+        <script src="/scripts/uuidv4.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
-        <script src="todo-functions.js"></script>
-        <script src="todo-app.js"></script>
+        <script src="/scripts/todo-functions.js"></script>
+        <script src="/scripts/todo-app.js"></script>
     </body>
 </html>
